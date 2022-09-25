@@ -10,5 +10,5 @@ shift g: ir para o final do arquivo
 x: deleta o que está selecionado
 y: copia o que está selecionado
 s: entra no modo de edição substituindo o que tinha antes
-c: recorta o código selecionad
+c: recorta o código selecionada
 
