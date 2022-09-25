@@ -1,0 +1,8 @@
+Docker run hello-world(rodar um docker para verificar se esta configurado na maquina )
+
+docker images( verificar as imagens de docker que estão baixadas na maquina )
+
+
+
+docker run -it ubuntu(Como um exemplo, vamos executar um container usando a última imagem do Ubuntu. A combinação dos switches -i e -t dá a você um acesso de shell interativo no container
+Seu prompt de comando deve mudar para refletir o fato de você agora estar trabalhando dentro do container e deve assumir esta forma)
