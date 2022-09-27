@@ -1,0 +1,18 @@
+roles/
+    common/                             # this hierarchy a "role"
+        task/                           #
+            main.yml                    #<-- tasks files can include smaller 
+        handlers/                       #files if warranted
+            main.yml                    #<--handlers files 
+        templates/                      #<--files for use with template
+            htp.conf.j2                 #<-- templates end in j2 
+        files/                          #
+            bar.txt                     #<-- files for use with copy reousces
+            foo.ssh                     #script files for use with the script
+        vars/                           #
+            main.yml                    #<-- variable associated with this role
+        defaults/                       #
+            main.yml                    #<-- default lower priority variable
+        meta/                           #
+            main.yml                    #<-- role dependencies 
+        library/                        # roles can also use custom modules

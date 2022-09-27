@@ -1,0 +1,4 @@
+- host: all
+  become:: yes
+  roles:
+    - common

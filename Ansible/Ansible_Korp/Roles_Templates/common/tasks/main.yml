@@ -1,0 +1,13 @@
+---
+# tasks file for common
+- name:  instalar pacotes no ubuntu handlers
+  apt:
+    name:
+      - net-tools
+      - telnet      
+      - htop
+      - wget
+
+- name: criar usuarios da empresa
+  user:
+    name : "korp "

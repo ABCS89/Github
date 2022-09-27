@@ -1,0 +1,5 @@
+---
+  - name: instalado o nginx
+    apt:
+      name:nginx
+      

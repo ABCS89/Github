@@ -1,0 +1,34 @@
+#pinga o repositorio
+ansible all --key-file ~/.ssh/ansible -i @Nameofileofinventory(invetory como default) -m ping  ( ele vai pingar do inventario para todas as maquinas )
+#pinga o repositorio
+sudo ansible -i project_dir/inventory -m ping all
+
+#pinga o repositorio
+sudo ansible -m ping all 
+
+
+#pingar somente um grupo  do ansible, Exemplo no Basic 3
+
+sudo ansible -i project_dir/inventory -m ping webservers_miami
+
+
+#pingar  dois target hosts 
+sudo ansible webservers:\&production -m ping
+
+#pinga todos os locais no inventario e da para colocar usuario que você deseja #autenticar
+ansible -i @inventario.txt all -u @user -m ping 
+
+#pinga todos os locais no inventario e da para colocar usuario e  a senha que você deseja #autenticar
+ansible -i @inventario.txt all -u @user -k @senha -m ping 
+
+
+#   CRIADOR DE TEMPLATE BASICO ###
+
+ansible-galaxy init common
+
+
+
+
+
+# PLAYBOOK#
+ansible-playbook -i inventory.txt  -u -k playbook.yml
