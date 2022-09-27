@@ -1,14 +1,5 @@
-esc: sair do modo atual e ir para o modo de comando
-shift a: entrar no modo de edição no final da linha
-shift o: entra no modo de edição em uma nova linha abaixo da atual
-gg: ir para o início do arquivo
-shift g: ir para o final do arquivo
-:wq : SALVAR O DOCUMENTO VIM 
-:q: sair do arquivo atual
-:q!: saída forçada do arquivo atual
-:w: salvar
-x: deleta o que está selecionado
-y: copia o que está selecionado
-s: entra no modo de edição substituindo o que tinha antes
-c: recorta o código selecionada
+bash o nome do codigo via .sh
 
+vim #nomedoarquivo.sh
+
+#!/bin/bash

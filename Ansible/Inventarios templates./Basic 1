@@ -1,0 +1,14 @@
+Colocar os ip das maquinas e Hostnames
+
+"group":{
+    "hosts":[
+        "192.168.0.23",
+        "192.168.0.24"
+    ]
+    "vars":{
+        "ansible_ssh_user":"sunil"
+    }    
+}
+"meta":{
+    "hostvars":{}
+}
