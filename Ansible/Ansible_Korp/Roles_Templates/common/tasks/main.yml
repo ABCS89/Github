@@ -1,5 +1,17 @@
 ---
 # tasks file for common
+- name: update SO
+  apt:
+    name: "*"
+    update_cache: yes
+
+
+- name: Check Dist Version
+  shell: cat /etc/os-release
+  register: response
+- debug: msg="{{ response.stdout }}"
+
+
 - name:  instalar pacotes no ubuntu handlers
   apt:
     name:
@@ -7,7 +19,11 @@
       - telnet      
       - htop
       - wget
+    state: latest
 
-- name: criar usuarios da empresa
-  user:
-    name : "korp "
+
+
+
+ 
+
+
