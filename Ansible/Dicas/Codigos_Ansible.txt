@@ -32,3 +32,15 @@ ansible-galaxy init common
 
 # PLAYBOOK#
 ansible-playbook -i inventory.txt  -u -k playbook.yml
+
+
+
+Codigos Simplificados 
+ansible  --help 
+-vvvv = ver o passo a passo
+-u  = User 
+-k  = Key
+-i  = inventario
+-m  = modulo 
+-a  = parametros 
+
