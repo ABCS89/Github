@@ -3,3 +3,10 @@ bash o nome do codigo via .sh
 vim #nomedoarquivo.sh
 
 #!/bin/bash
+
+
+
+#-l  LOWERSCALE BASH
+#-u  UPERSCALE BASH
+declare -u run_bootstrap
+run_bootstrap=$run_bootstrap
