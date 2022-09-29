@@ -1,0 +1,2 @@
+lsblk=verificar os discos
+top=verificar processos 
