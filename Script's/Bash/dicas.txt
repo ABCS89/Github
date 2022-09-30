@@ -1,0 +1,2 @@
+# deixar maiusculo.
+if [ ${run_bootstrap^^}: == "FALSE" ];
