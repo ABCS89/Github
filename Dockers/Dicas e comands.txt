@@ -9,6 +9,53 @@ Seu prompt de comando deve mudar para refletir o fato de você agora estar traba
 
 docker run -it ubuntu bash 
 
+bibligrafia de siglas 
+-i = interativo
+t= terminal  
+Parâmetro	Explicação
+-a	Lista todos os containers, inclusive os desligados
+-l	Lista os últimos containers, inclusive os desligados
+-n	Lista os últimos N containers, inclusive os desligados
+-q	Lista apenas os ids dos containers, ótimo para utilização em scripts
+
+
+Parâmetro	Explicaçãols
+-d	Execução do container em background
+-i	Modo interativo. Mantém o STDIN aberto mesmo sem console anexado
+-t	Aloca uma pseudo TTY
+--rm	Automaticamente remove o container após finalização (Não funciona com -d)
+--name	Nomear o container
+-v	Mapeamento de volume
+-p	Mapeamento de porta
+-m	Limitar o uso de memória RAM
+-c	Balancear o uso de CPU
+
+
 apt install nginx
 
 docker info
+
+
+
+
+comandos rapidos 
+docker run -it ubuntu bash 
+docker  container ls= containers em execução 
+docker containers list -a= constainers que tem msm desligado 
+docker ps -a = mostra os desligados 
+docker ps = mostra os container em execução 
+docker rm  <container ID>   = remove constainer s
+docker start -ai <container ID>
+docker pull ubuntu = puxar a imagem 
+
+rodar um docker/iniciar
+docker run 
+docker run -it ubuntu bash 
+docker run -it ubuntu sleep 1d
+
+
+exemplos
+docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                        PORTS     NAMES
+daf295af9281   ubuntu        "bash"     3 minutes ago   Exited (137) 29 seconds ago             MyContainer
+docker start -ai daf295af9281
