@@ -44,3 +44,15 @@ ansible  --help
 -m  = modulo 
 -a  = parametros 
 
+
+
+
+
+
+# exemplo de regex 
+
+       - name: Checagem de Espaço livre Korp Disk
+          ansible.builtin.fail:
+            msg:
+              - "Falha disco não tem espaço livre disponivel  suficiente "
+          when: ((ansible_devices[korp_disk].size | regex_replace('[^0-9]','')) | int )  < korp_data_disk_size 
