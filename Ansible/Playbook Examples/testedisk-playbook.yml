@@ -1,0 +1,120 @@
+---
+- hosts: localhost
+  become: true
+  vars:
+    vg_korp_name: vg_korp
+    lv_korp_name: lv_korp
+    free_disks: []
+    korp_disk: ""
+    tamanho: 1
+
+  # criação de LVM:
+  #   https://www.linuxbuzz.com/create-lvm-partition-in-linux/
+  # remoção de LVM:
+  #   https://www.looklinux.com/how-to-remove-volume-group-and-physical-volume-on-lvm/
+
+  tasks:
+    - name: debug 
+      debug: 
+        
+        msg:         
+        #  -  "{{(0.9 * root_data_disk_size)}}"
+        #- "{{ ansible_mounts|selectattr("mount", "equalto", "/")|list)[0].size_available}}"
+        #- "{{ ansible_mounts|json_query('[?holders == `ubuntu--vg-ubuntu--lv`]') }}"
+        #  - "{{ ansible_devices.keys() | map('regex_search', 'sd.*',) | select('string')}}"       
+        #  - "{{  ansible_mounts|json_query('[?mount == `/`].size_available')}}"    
+        #  - "{{  ((ansible_mounts|json_query('[?mount == `/`].size_total'))[0] /1024/1024/1024) }}"
+        #  - " {{ ansible_devices[korp_disk].size }} "
+        #  - "{{ (( ansible_mounts|json_query('[?mount == `/`].size_available')| float ) /1024 ) /1024 }}"
+        #  - "{{ansible_mounts}}"
+
+
+    - name: Verificação de configuração de LVM
+      ansible.builtin.stat:
+        path: "/dev/{{ vg_korp_name }}/{{ lv_korp_name }}"
+      register: lvm_config
+
+    - name: Mapeamento, criação e configuração de partição 'dados_korp'
+      block:
+
+        - name: Mapeamento de discos
+
+          block:
+
+            - name: Mapeamento de discos livres
+              ansible.builtin.set_fact:
+                free_disks: "{{ free_disks | union([item]) }}"
+              when: ansible_devices[item].partitions | list | length==0
+              with_items: "{{ ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list  }}"
+
+            - name: Checagem de discos
+              ansible.builtin.fail:
+                msg:
+                  - "FALHA: '{{ free_disks | length }}' discos livres foram detectados, o número esperado é '1'."
+                  - "Caso o número de discos seja maior que um, especifique o disco usando 'disk=\"<sdx>\"', onde '<sdx>' é o nome do disco."
+              when: free_disks | length != 1
+
+
+
+
+
+            - name: Definição de disco a ser usado
+              ansible.builtin.set_fact:
+                korp_disk: "{{ free_disks[0] }}"
+
+          when: korp_disk == ""
+
+        # - name: Criação de 'grupo de volume'
+        #   community.general.lvg:
+        #     vg: "{{ vg_korp_name }}"
+        #     pvs: "/dev/{{ korp_disk }}"
+
+
+        # - name: Definição de disco a ser usado
+        #   ansible.builtin.set_fact:
+        #    tamanho: "{{ansible_devices[korp_disk].size | regex_replace('[^0-9]','')}}"
+
+        - name: teste de variavel 
+          debug:           
+            msg:
+            #  - "{{ tamanho }}"
+             - "{{ansible_devices[korp_disk].size |  regex_replace('[^0-9^.]','') | int }}"    
+           #  - "{{(ansible_devices[korp_disk]      )}}"   #testar size 
+
+        # - name: Checagem de espaço total Disco Root
+        #   ansible.builtin.fail:
+        #     msg:
+        #       - "Falha disco não tem espaço total disponivel para rodar aplicação "
+        #   when : ((ansible_mounts|json_query('[?mount == `/`].size_total'))[0] /1024/1024/1024 | int ) < (0.9 * root_disk_minimum_size)
+
+        - name: Checagem de Espaço livre Korp Disk
+          ansible.builtin.fail:
+            msg:
+              - "Falha disco da korp não tem espaço livre disponivel  suficiente "
+          when: (ansible_devices[korp_disk].size |  regex_replace('[^0-9^.]','') | int)  < korp_data_disk_minimum_size
+
+        # - name: Criação de 'volume lógico'
+        #   community.general.lvol:
+        #     vg: "{{ vg_korp_name }}"
+        #     lv: "{{ lv_korp_name }}"
+        #     size: 100%FREE
+
+      #   - name: Criação de ext4 no volume lógico
+      #     community.general.filesystem:
+      #       fstype: ext4
+      #       dev: "/dev/{{ vg_korp_name }}/{{ lv_korp_name }}"
+
+      #   - name: Criação de diretório padrão korp
+      #     ansible.builtin.file:
+      #       path: "{{ korp_dir_path }}"
+      #       state: directory
+      #       mode: '0755'
+
+      #   - name: Montagem de partição no dispositivo
+      #     ansible.posix.mount:
+      #       path: "{{ korp_dir_path }}"
+      #       src: "/dev/{{ vg_korp_name }}/{{ lv_korp_name }}"
+      #       fstype: ext4
+      #       state: mounted
+
+      # when: not lvm_config.stat.exists
