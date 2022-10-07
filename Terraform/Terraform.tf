@@ -1,4 +1,4 @@
-[
+
   {
     "cloudName": "AzureCloud",
     "homeTenantId": "0envbwi39-home-Tenant-Id",
@@ -13,4 +13,3 @@
       "type": "user"
     }
   }
-]
