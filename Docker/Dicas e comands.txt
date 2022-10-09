@@ -39,6 +39,7 @@ docker info
 
 
 comandos rapidos 
+docker port <image>// docker run -d -p 8080(porta que quer):80(porta do docker) <image do docker>
 docker run -it ubuntu bash 
 docker  container ls= containers em execução 
 docker containers list -a= constainers que tem msm desligado 
