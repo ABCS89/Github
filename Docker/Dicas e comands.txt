@@ -43,7 +43,7 @@ docker-compose build: realiza apenas a etapa de build das imagens que serão uti
 docker-compose logs: visualiza os logs dos contêineres;
 docker-compose restart: reinicia os contêineres;
 docker-compose ps: lista os contêineres;
-docker-compose scale: permite aumentar o número de réplicas de um contêiner;
+docker-compose scale: pdocermite aumentar o número de réplicas de um contêiner;
 docker-compose start: inicia os contêineres;
 docker-compose stop: paralisa os contêineres;
 docker-compose down: paralisa e remove todos os contêineres e seus componentes como rede, imagem e volume.
@@ -71,3 +71,14 @@ docker ps -a
 CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                        PORTS     NAMES
 daf295af9281   ubuntu        "bash"     3 minutes ago   Exited (137) 29 seconds ago             MyContainer
 docker start -ai daf295af9281
+
+
+
+
+    ports:
+      - >>>>porta de fora  "9011:9000"<<<<<<porta do docker # portas e nocoes 
+    volumes:
+      - /opt/dados-docker/portainer/:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
