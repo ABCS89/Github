@@ -1,0 +1,22 @@
+version: "3.7"
+
+networks:
+  servicos:
+    external:
+      name: servicos
+
+services:
+  postgres:
+    image: "postgres:14"
+    container_name: "postgres"
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=zabbix
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - /opt/dados-docker/postgres/:/var/lib/postgresql/data/
