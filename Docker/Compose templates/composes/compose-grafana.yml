@@ -1,0 +1,25 @@
+version: "3.7"
+
+networks:
+  servicos:
+    external:
+      name: servicos
+
+volumes:
+  grafana-lib:
+    name: grafana-lib
+  grafana-etc:
+    name: grafana-etc
+
+services:
+  grafana:
+    image: "grafana/grafana:latest"
+    container_name: "grafana"
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-lib:/var/lib
+      - grafana-etc:/etc/grafana

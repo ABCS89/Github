@@ -1,0 +1,21 @@
+version: "3.7"
+
+networks:
+  servicos:
+    external:
+      name: servicos
+
+services:
+  nginx:
+    image: "nginx:latest"
+    container_name: "nginx"
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /opt/dados-docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - /opt/dados-docker/nginx/common/:/etc/nginx/common/
+      - /opt/dados-docker/nginx/certs/:/etc/nginx/certs/

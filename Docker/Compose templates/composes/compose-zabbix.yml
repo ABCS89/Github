@@ -1,0 +1,58 @@
+version: "3.7"
+
+networks:
+  servicos:
+    external:
+      name: servicos
+
+services:
+  zabbix-server:
+    image: "zabbix/zabbix-server-pgsql:ubuntu-latest"
+    container_name: zabbix-server
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - 10051:10051
+    environment:
+      - DB_SERVER_HOST=postgres
+      - DB_SERVER_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=zabbix
+      - PHP_TZ=GMT
+
+  zabbix-agent:
+    image: "zabbix/zabbix-agent2:ubuntu-latest"
+    container_name: zabbix-agent
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - 10050:10050
+    environment:
+      - ZBX_HOSTNAME=zabbix-agent_zabbix-server-korp
+      - ZBX_SERVER_HOST=zabbix-server
+      - ZBX_PASSIVE_ALLOW=false
+      - ZBX_ACTIVESERVERS=zabbix-server.korp.com.br:10051
+    volumes:
+      - /dev/sdc:/dev/sdc
+    privileged: true
+
+  zabbix-web-interface:
+    image: "zabbix/zabbix-web-nginx-pgsql:ubuntu-latest"
+    container_name: zabbix-web-interface
+    restart: always
+    networks:
+      - servicos
+    ports:
+      - 8080:8080      
+    environment:
+      - ZBX_SERVER_HOST=zabbix-server
+      - ZBX_SERVER_PORT=10051
+      - DB_SERVER_HOST=postgres
+      - DB_SERVER_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=zabbix
+      - PHP_TZ=GMT
