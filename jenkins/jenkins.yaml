@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jenkins
+
+---
+
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: jenkins
+  namespace: kube-system
+spec:
+  chart: stable/jenkins
+  targetNamespace: jenkins
+  valuesContent: |-
+    master:
+      adminPassword: korp!451820080691
+      installPlugins:
+        - locale
+        - kubernetes
+        - workflow-aggregator
+        - workflow-job
+        - credentials-binding
+        - git
+        - greenballs
+        - pipeline
+        - pipeline-job
+        - powershell
+        - build-with-parameters
+        - bitbucket
+        - cloudbees-bitbucket-branch-source
+      scriptApproval:
+        - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
+        - "new groovy.json.JsonSlurperClassic"
+        - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods leftShift java.util.Map java.util.Map"
+        - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods split java.lang.String"
+        - "method hudson.plugins.git.GitSCM getBranches"
+        - "method hudson.plugins.git.GitSCM getUserRemoteConfigs"
+        - "method hudson.plugins.git.GitSCM isDoGenerateSubmoduleConfiguration"
+  nodeSelector:
+    hostname: k3s-worker-node01

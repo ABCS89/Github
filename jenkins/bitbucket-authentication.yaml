@@ -1,0 +1,20 @@
+# Secret usado para pegar usuário e senha de autenticação ao bitbucket
+# Como configurar:
+#   - Alterar usuário e senha
+#   - Copiar arquivo para a home do servidor
+#   - Rodar `kubectl apply -f ./bitbucket-authentication.yaml`
+# Output desejado: secret/bitbucket-authentication created
+#
+apiVersion: v1
+data:
+  PASSWORD:<SENHA EM BASE 64>
+  USER_NAME:<USUÁRIO EM BASE 64>
+kind: Secret
+metadata:
+  creationTimestamp: "2022-03-11T13:48:52Z"
+  name: bitbucket-authentication
+  namespace: jenkins
+  resourceVersion: "12929315"
+  uid: 51d6cc91-2aec-4c05-8acf-1cdeb4a940d0
+type: Opaque
+
