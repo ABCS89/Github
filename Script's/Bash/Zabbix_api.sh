@@ -49,3 +49,4 @@ pegarhosts()
 
 }
 pegarhosts
+HOSTS=[$pegarhosts]
