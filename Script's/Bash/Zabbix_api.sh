@@ -21,10 +21,31 @@ autenticacao()
         "id":2
     }
     '
-    curl -sr -X POST -H "$HEADER" -d "$JSON"  "$URL"  | cut -d '"'  -f8
+    curl -s -X POST -H "$HEADER" -d "$JSON"  "$URL"  | cut -d '"'  -f8
 
 }
 
 TOKEN=$(autenticacao)
 
-echo $TOKEN
+
+
+pegarhosts()
+{
+
+    JSON='
+    {
+        "jsonrpc": "2.0",        
+        "method": "host.get",
+        "params":
+        {
+            "output": ["hostid", "host"],
+            "selectInterfaces": ["interfaceid", "ip"]
+        },
+        "id": 2,
+        "auth": "'$TOKEN'" 
+    }    
+    '
+    curl -s -X POST -H "$HEADER" -d "$JSON" "$URL" | python3 -mjson.tool
+
+}
+pegarhosts
