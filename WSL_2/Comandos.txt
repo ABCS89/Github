@@ -1,0 +1,27 @@
+windows terminal 
+
+
+wsl --install(Instalar o wsl) 
+
+
+python3 -m http.server( acessar os arquivos ) 
+
+localhost:2000
+
+wsl --list --online( verificar os distros disponiveis)
+
+
+wsl --list --verbose(ver qual esta rodando )
+
+wsl --install -d ubuntu
+
+wsl --set-default Ubuntu( deixar em default distro)
+
+wsl --update(dar update no wsl) 
+
+wsl --status(verificar o kernel e versão) 
+
+wsl --unregister ubuntu(deletar a versão) 
+
+
+

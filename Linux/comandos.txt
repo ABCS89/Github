@@ -1,2 +1,11 @@
-lsblk=verificar os discos
-top=verificar processos 
+lsblk =verificar os discos
+top =verificar processos 
+df -h =particao dos discos 
+rm -v !("filename1"|"filename2") # remover todos os arquivos e nao remover esse por excessao
+cd =andar pelos diretorios 
+cd .. = andar para tras
+cd- = andar 1 para tras 
+pwd =mostrar o diretorio no momento 
+rmdir = remove diretory
+mkdir = criar pastas 
+scp =
