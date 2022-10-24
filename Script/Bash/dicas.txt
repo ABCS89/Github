@@ -1,2 +1,9 @@
 # deixar maiusculo.
 if [ ${run_bootstrap^^}: == "FALSE" ];
+
+
+
+
+# site que ensina a usar leitura de yaml para python e para bash 
+https://www.earthinversion.com/techniques/read-yaml-input-file-in-bash-c-and-python/
+

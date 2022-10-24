@@ -3,7 +3,7 @@
 
 
 VerificacaoAnsible()
-{
+{       #! inserir  para que siga a logica do randins 
     if  sudo test -f /etc/korp/ansible/inventory.yml 
     then
         echo "AQUIII"
@@ -11,16 +11,29 @@ VerificacaoAnsible()
         true
         
 
-    else
-      Inv_yml.yml= source ${/root/repositorios/Github/Script/Bash/inventory.yml} 
-       # PATH='sudo ansible-vault edit inventory.yml --vault-id .vault_key'
-       echo $Inv_yml
-      #  if
-      #  then 
-       # else 
-       # fi
-        
-    fi 
+    else   
+        function parse_yaml {
+        local prefix=$2
+        local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+        sed -ne "s|^\($s\):|\1|" \
+                -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+                -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+        awk -F$fs '{
+            indent = length($1)/2;
+            vname[indent] = $2;
+            for (i in vname) {if (i > indent) {delete vname[i]}}
+            if (length($3) > 0) {
+                vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+                printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+            }#fim if
+        }'#fim Awk
+        #fim Funcao parse_yaml
+        }
+
+
+        eval $(parse_yaml inventory.yml)
+      
+  fi
 }
 
 
