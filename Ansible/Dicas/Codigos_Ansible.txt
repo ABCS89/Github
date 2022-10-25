@@ -1,3 +1,8 @@
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+
+
+
+
 #pinga o repositorio
 ansible all --key-file ~/.ssh/ansible -i @Nameofileofinventory(invetory como default) -m ping  ( ele vai pingar do inventario para todas as maquinas )
 #pinga o repositorio
