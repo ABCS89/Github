@@ -10,3 +10,6 @@ vim #nomedoarquivo.sh
 #-u  UPERSCALE BASH
 declare -u run_bootstrap
 run_bootstrap=$run_bootstrap
+
+
+sudo mkdir -p /etc/korp/ansible/  #criar fora do usuarios 
