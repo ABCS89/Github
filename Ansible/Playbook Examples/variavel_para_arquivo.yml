@@ -1,0 +1,8 @@
+
+      #Funcao de inserir a variavel no arquivo.
+    - name: Write variable to file
+      copy:
+        content: '{{inventory | to_nice_json }}'
+        dest: /home/vnesp/repositorios_Git/test.yaml
+      delegate_to: localhost
+                      

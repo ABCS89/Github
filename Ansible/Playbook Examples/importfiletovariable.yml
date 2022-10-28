@@ -1,0 +1,4 @@
+     #importinventoryfile
+    - name: ImportarInventario
+      ansible.builtin.set_fact:
+        inventory: "{{ (lookup('ansible.builtin.template', '/home/vnesp/repositorios_Git/test.yaml')|from_yaml) }}"    

@@ -1,0 +1,18 @@
+    - name: postgres
+      ansible.builtin.set_fact:      
+        inventory: "{{ inventory | combine(
+          {
+            'all' : {
+              'children': {
+                'nodes' :{
+                  'hosts' :{
+                    'localhost': {
+                      'nome': 'outracosia2'
+                    }        
+                  }
+                }
+              }
+            }
+          }, recursive=True) }}"
+      when:
+        - inventory.all.children.nodes.hosts.localhost.nome is not defined              
