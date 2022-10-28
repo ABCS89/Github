@@ -18,3 +18,5 @@ git config user.email "MY_NAME@example.com"
 
 Verify your configuration by displaying your configuration file:
 cat .git/config
+
+
