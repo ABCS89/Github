@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+
+  task: 
+    - name : Unzip #https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+      unarchive: 
+        src:  'tmp/<arquive.zip>' #destino que esta  o arquivo 
+        dest: /var/lib/foo   #destino que vai ser descompactado
+        remote_src: yes # se a maquina seja a slave e nao a master 
+        become: yes #somente o root  pode editar e com become o ansible consegue alterar 
+      
