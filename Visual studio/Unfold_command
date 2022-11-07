@@ -1,0 +1,4 @@
+
+
+How do you expand everything in VSCode?
+Fold All (Ctrl+K Ctrl+0) folds all regions in the editor. Unfold All (Ctrl+K Ctrl+J) unfolds all regions in the editor. Fold Level X (Ctrl+K Ctrl+2 for level 2) folds all regions of level X, except the region at the current cursor position.
