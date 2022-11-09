@@ -122,32 +122,6 @@ Commands:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 comandos rapidos 
 docker port <image>// docker run -d -p 8080(porta que quer):80(porta do docker) <image do docker>
 docker run -it ubuntu bash 
@@ -171,9 +145,6 @@ CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                  
 daf295af9281   ubuntu        "bash"     3 minutes ago   Exited (137) 29 seconds ago             MyContainer
 docker start -ai daf295af9281
 
-
-
-
     ports:
       - >>>>porta de fora  "9011:9000"<<<<<<porta do docker # portas e nocoes 
     volumes:
@@ -181,3 +152,11 @@ docker start -ai daf295af9281
       - /var/run/docker.sock:/var/run/docker.sock
 
 
+
+
+
+How to Remove Docker Containers
+https://linuxhandbook.com/remove-docker-containers/
+
+sudo docker ps -q -a| xargs docker stop
+sudo docker ps -q -a | xargs docker rm
