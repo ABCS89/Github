@@ -1,0 +1,78 @@
+https://www.vivaolinux.com.br/topico/Iniciantes-no-Linux/Mudar-permissoes-de-um-usuario-especifico
+
+
+Boa tarde, Gabriel.
+Como eu mudo as permissões de um usuário apenas ?
+Com o comando chmod, a sintaxe, é:
+chmod [opções] [permissões] [diretório/arquivo] 
+
+
+Quero também ver a listagem dos usuários e também as permissões que eles tem ?
+Quais comandos usar para fazer isso ?
+ls -Rl /home/usuario/ 
+
+Onde:
+r => read - indica a permissão de leitura;
+w => write - indica a permissão de escrita;
+x => Execution - indica a permissão de execução
+- => indica a ausência de permissão
+Exemplo:
+-rw-r--r-- 1 usuario grupo 930000 Mar 24 09:52 NOME_DO_ARQUIVO
+Divida o resultado em 3 partes
+rw-|r--|r--
+Cada grupo de 3 caracteres significa nesta ordem:
+Permissão para o dono,
+Permissões para o grupo ao qual pertence o dono do arquivo
+Permissões para os outros usuários.
+Cada letra tem seu bit correspondente, o que podemos identificar da seguinte forma:
+Letra   Binário Decimal Significado 
+- 	000 	0 	Sem permissão
+-x 	001 	1 	Permissão de execução
+-w- 	010 	2 	Permissão de escrita
+-wx 	011 	3 	Permissão de escrita e execução
+r- 	100 	4 	Permissão de Leitura
+r-x 	101 	5 	Permissão de leitura e execução
+rw- 	110 	6 	Permissão de leitura e escrita
+rwx 	111 	7 	Permissão total 
+
+FONTE: http://www.guiafoca.org/cgs/guia/intermediario/ch-perm.html
+
+Ou também como colocar um usuário no grupo do root/administrador?
+Por questões de SEGURANÇA, Não é RECOMENDADO!!!!
+Mas . . .
+Altere UID e GUI para 0 em /etc/passwd
+Esses dois comandos, fazem o "trabalho":
+
+NNUGID=$(awk -F":" '/^'$USER'/{print $3":"$4}' PASSWORD.txt)
+sed -i '/^'$USER'/s/'$NNUGID'/0:0/' /etc/passwd   # EXECUTE ESTE COMANDO COMO ROOT!
+ 
+
+
+Pra dar permissões pro usuário seria: chmod 777 "usuário" ?
+Não!
+Com "777" vc ATRIBUI TUDO para TODOS!
+E onde vc colocou "usuário", coloque o ARQUIVO que deseja alterar,
+misturou chmod com chown.
+Exemplo:
+chmod 700 arquivo
+Da permissão TOTAL para o DONO.
+7 => REFERE-SE ao DONO (1º algarismo)
+0 => REFERE-SE ao GRUPO (2º algarismo)
+0 => REFERE-SE aos OUTROS (3º algarismo)
+
+O assunto é um tanto qto extenso . . .
+Recomendo a leitura do Guia Foca GNU/Linux, capitulo 11, referente a PERMISSõES e o 11.7 ao chmod.
+http://www.guiafoca.org/cgs/download/iniciante/focalinux1-html.zip 
+
+E também:
+http://aurelio.net/shell/canivete/ 
+
+
+É Isso...
+
+Se resolver, marque como resolvido, por favor.
+Gostando da resposta, marque-a como MELHOR, dessa forma, ganho uns pontinhos,
+o que incentiva a continuar colaborando, ajudando, participando e compartilhando conhecimentos . . . :)
+
+Att.:
+Marcelo
