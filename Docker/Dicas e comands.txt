@@ -31,8 +31,6 @@ Parâmetro	Explicaçãols
 -c	Balancear o uso de CPU
 
 
-apt install nginx
-
 docker info
 
 
@@ -122,6 +120,12 @@ Commands:
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 61605fa7ea63073568c8a9b416a7a413ab121f2a
 comandos rapidos 
 docker port <image>// docker run -d -p 8080(porta que quer):80(porta do docker) <image do docker>
 docker run -it ubuntu bash 
@@ -154,9 +158,22 @@ docker start -ai daf295af9281
 
 
 
+<<<<<<< HEAD
 
 How to Remove Docker Containers
 https://linuxhandbook.com/remove-docker-containers/
 
 sudo docker ps -q -a| xargs docker stop
 sudo docker ps -q -a | xargs docker rm
+=======
+#https://linuxhandbook.com/remove-docker-containers/
+
+
+
+remove all containers
+
+#stop e remove todos os containers 
+docker ps -q | xargs docker stop
+docker ps -q | xargs docker rm
+
+>>>>>>> 61605fa7ea63073568c8a9b416a7a413ab121f2a
