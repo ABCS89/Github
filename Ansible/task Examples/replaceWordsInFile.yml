@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+
+  task:
+    - name : Replace a word in a file
+      replace:  #https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html
+        path: 'var/www/wordpress/wp-config.php' #caminho 
+        regexp: "{{ item.regex }}" # metodo de busca 
+        replace:  "{{item.value}}"  #oque vai ser substituido 
+      with_items: 
+      - {regex:'database_name_here', value:'wordpress_db'}  
+      - {regex:'username_here', value:'wordpress_user'}
+      - {regex:'database_name_here', value:'12345'}
+      become: yes  # nivel sudo 
+      

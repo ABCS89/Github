@@ -31,8 +31,6 @@ Parâmetro	Explicaçãols
 -c	Balancear o uso de CPU
 
 
-apt install nginx
-
 docker info
 
 
@@ -125,29 +123,6 @@ Commands:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 comandos rapidos 
 docker port <image>// docker run -d -p 8080(porta que quer):80(porta do docker) <image do docker>
 docker run -it ubuntu bash 
@@ -180,4 +155,16 @@ docker start -ai daf295af9281
       - /opt/dados-docker/portainer/:/data
       - /var/run/docker.sock:/var/run/docker.sock
 
+
+
+
+#https://linuxhandbook.com/remove-docker-containers/
+
+
+
+remove all containers
+
+#stop e remove todos os containers 
+docker ps -q | xargs docker stop
+docker ps -q | xargs docker rm
 
