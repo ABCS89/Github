@@ -167,3 +167,8 @@ remove all containers
 #stop e remove todos os containers 
 sudo docker ps -q -a | xargs docker stop
 sudo docker ps -q -a | xargs docker rm
+
+
+
+
+sudo docker-compose -f infrastructure-web-compose.yml up -d 
