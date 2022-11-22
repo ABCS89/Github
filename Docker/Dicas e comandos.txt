@@ -122,9 +122,7 @@ Commands:
 
 
 Dockers Rede:
-
-
-docker port 
+docker port  <image>// docker run -d -p 8080(porta que quer):80(porta do docker) <image do docker>
 
 
 
@@ -165,9 +163,6 @@ docker start -ai daf295af9281
 
 
 #https://linuxhandbook.com/remove-docker-containers/
-
-
-
 remove all containers
 
 #stop e remove todos os containers 
