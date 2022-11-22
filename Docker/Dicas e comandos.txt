@@ -161,7 +161,6 @@ docker start -ai daf295af9281
 
 
 
-
 #https://linuxhandbook.com/remove-docker-containers/
 remove all containers
 
