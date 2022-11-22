@@ -23,10 +23,11 @@ Parâmetro	Explicaçãols
 -d	Execução do container em background
 -i	Modo interativo. Mantém o STDIN aberto mesmo sem console anexado
 -t	Aloca uma pseudo TTY
---rm	Automaticamente remove o container após finalização (Não funciona com -d)
+--rm	Automaticamente remove o container após finalização (Não funciona com -d) --force
 --name	Nomear o container
 -v	Mapeamento de volume
 -p	Mapeamento de porta
+-P Mapeamento de porta aleatoriamente 
 -m	Limitar o uso de memória RAM
 -c	Balancear o uso de CPU
 
@@ -120,6 +121,11 @@ Commands:
 
 
 
+Dockers Rede:
+
+
+docker port 
+
 
 
 
@@ -130,7 +136,7 @@ docker  container ls= containers em execução
 docker containers list -a= constainers que tem msm desligado 
 docker ps -a = mostra os desligados 
 docker ps = mostra os container em execução 
-docker rm  <container ID>   = remove constainer s
+docker rm  <container ID>   = remove constainer s --force
 docker start -ai <container ID>
 docker pull ubuntu = puxar a imagem 
 
