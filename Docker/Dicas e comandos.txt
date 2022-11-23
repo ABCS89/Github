@@ -177,3 +177,10 @@ sudo docker ps -q -a | xargs docker rm -f
 
 
 sudo docker-compose -f infrastructure-web-compose.yml up -d 
+
+
+COMMITAR IMAGEM NO DOCKER HUB 
+
+docker tag danielartine/app-node:1.0 aluradocker/app-node:1.0
+
+docker push aluradocker/app-node:1.0
