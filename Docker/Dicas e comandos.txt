@@ -1,3 +1,8 @@
+https://docs.docker.com/engine/reference/builder/ Documentacao 
+
+
+
+
 Docker run hello-world(rodar um docker para verificar se esta configurado na maquina )
 
 docker images( verificar as imagens de docker que estão baixadas na maquina )
