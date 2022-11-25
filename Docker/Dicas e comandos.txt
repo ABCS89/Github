@@ -28,7 +28,8 @@ Parâmetro	Explicaçãols
 -d	Execução do container em background
 -i	Modo interativo. Mantém o STDIN aberto mesmo sem console anexado
 -t	Aloca uma pseudo TTY
---rm	Automaticamente remove o container após finalização (Não funciona com -d) --force
+-rm	Automaticamente remove o container após finalização (Não funciona com -d) --force
+-rmi  remover imagens 
 --name	Nomear o container
 -v	Mapeamento de volume
 -p	Mapeamento de porta
