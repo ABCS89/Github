@@ -14,6 +14,12 @@ Seu prompt de comando deve mudar para refletir o fato de você agora estar traba
 
 docker run -it ubuntu bash 
 
+docker exec -it container_name /bin/bash
+
+docker exec -t -i <container_name> /bin/bash
+
+
+
 bibligrafia de siglas 
 -i = interativo
 t= terminal  
