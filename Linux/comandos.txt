@@ -8,4 +8,4 @@ cd- = andar 1 para tras
 pwd =mostrar o diretorio no momento 
 rmdir = remove diretory
 mkdir = criar pastas 
-scp =
+systemctl gerenciamento central para controlar o sistema init
