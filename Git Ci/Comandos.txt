@@ -1,0 +1,7 @@
+
+
+**Trocar de branch***
+git checkout
+
+*** ver a branch que estou***
+git branch
