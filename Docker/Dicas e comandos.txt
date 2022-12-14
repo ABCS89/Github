@@ -177,8 +177,8 @@ docker start -ai daf295af9281
 remove all containers
 
 #stop e remove todos os containers 
-sudo docker ps -q -a | xargs docker stop
-sudo docker ps -q -a | xargs docker rm -f
+sudo docker ps -q -a | sudo xargs docker stop
+sudo docker ps -q -a | sudo  xargs docker rm -f
 #remover todas as images docker 
 sudo docker rmi $(docker images -q)//docker image prune
 
