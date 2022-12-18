@@ -1,0 +1,4 @@
+$ jq --help
+jq - commandline JSON processor [version 1.6]
+
+Usage:	jq [options] <jq filter> [file...]ls
