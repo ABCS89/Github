@@ -6,7 +6,7 @@ adduser <sammy> -m(criar com home )
 
 passwd <sammy>
 
-sudo useradd -s /bin/bash -d /home/vivek/ -m -G sudo vivek
+sudo useradd -s /bin/bash  -m -G sudo korp
 $ sudo passwd vivek
 
 Where,
@@ -17,4 +17,8 @@ Where,
 -G sudo – Make sure vivek user can sudo i.e. give admin access to the new account
 
 
-$ sudo deluser --remove-home <Account>
+$ sudo userdel --remove-home <Account>
+
+
+
+sudo useradd -s /bin/bash  -G korp
