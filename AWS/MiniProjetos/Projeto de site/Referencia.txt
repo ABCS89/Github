@@ -1,0 +1,1 @@
+https://medium.com/@andrebueno89/migração-de-webserver-nginx-para-docker-containers-em-alta-disponibilidade-na-aws-usando-o-docker-f9796444cb43
