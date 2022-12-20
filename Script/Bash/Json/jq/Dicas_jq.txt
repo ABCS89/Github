@@ -2,3 +2,10 @@ $ jq --help
 jq - commandline JSON processor [version 1.6]
 
 Usage:	jq [options] <jq filter> [file...]ls
+
+
+
+Use a temporary file; it's what any program that claims to do in-place editing is doing.
+
+tmp=$(mktemp)
+jq '.address = "abcde"' test.json > "$tmp" && mv "$tmp" test.json
