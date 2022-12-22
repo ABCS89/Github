@@ -1,0 +1,1 @@
+EKS=Amazon Elastic Kubernetes Service (Amazon EKS) é um serviço gerenciado que você pode usar para executar o Kubernetes na AWS, sem necessidade de instalar e manter seus próprios nós ou ambiente de gerenciamento do Kubernetes.
