@@ -1,0 +1,1 @@
+O Amazon Simple Email Service (SES) permite que você alcance os clientes com confiança, sem um sistema de SMTP (Simple Mail Transfer Protocol) on-premises.
