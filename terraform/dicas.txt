@@ -1,0 +1,5 @@
+terraform workspace list
+$ terraform workspace select <ambiente>
+
+
+https://www.terraform.io
