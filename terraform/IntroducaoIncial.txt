@@ -1,0 +1,9 @@
+vim .profile 
+
+PATH="$HOME/.local/bin:${PATH}"
+export PATH
+
+
+source .profile 
+
+echo $PATH
