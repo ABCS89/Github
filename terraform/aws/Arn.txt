@@ -1,0 +1,13 @@
+
+
+
+se o nome esta 
+
+resource "aws_instance" "web"{
+    ami = data.aws._ami.ubuntu.id 
+
+
+}
+
+
+o arn é  aws_instance.web.arn 
