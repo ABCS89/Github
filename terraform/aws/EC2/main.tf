@@ -1,7 +1,14 @@
+# Configure o provider AWS
 provider "aws" {
-  region     = "us-west-2"
+  access_key = "ACCESS_KEY"
+  secret_key = "SECRET_KEY"
+  region     = "REGION"
 }
 
-resource "aws_instance" "dev" {
-  ami = ""
+# Defina a sua instância EC2
+resource "aws_instance" "example" {
+  ami           = "ami-123456"
+  instance_type = "t2.micro"
+  key_name      = "example-key"
+  security_groups = ["sg-123456"]
 }
