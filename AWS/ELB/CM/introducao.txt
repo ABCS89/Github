@@ -1,0 +1,1 @@
+Use o AWS Certificate Manager (ACM) para provisionar, gerenciar e implantar certificados SSL/TLS públicos e privados para uso com serviços da AWS e seus recursos internos conectados. O ACM elimina processos manuais demorados, como compra, upload e renovação de certificados SSL/TLS.
