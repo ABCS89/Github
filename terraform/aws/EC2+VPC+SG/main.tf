@@ -2,24 +2,10 @@
 provider "aws" {
   region = "us-east-1"
 }
-
-# Create a VPC
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-}
-
-# Create a subnet
-resource "aws_subnet" "public" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
-}
-
 # Create a security group
 resource "aws_security_group" "ssh" {
   name        = "allow_ssh"
-  description = "Allow SSH access"
-  vpc_id      = aws_vpc.main.id
+  description = "Allow SSH access" 
 
   ingress {
     from_port   = 22
@@ -48,25 +34,21 @@ resource "aws_key_pair" "generated_key" {
 
 # Save the private key to a file
 resource "local_file" "private_key" {
-  content  = tls_private_key.example.public_key_openssh
-  filename = "~/.ssh/private_key.pem"
+  content  = "${tls_private_key.example.public_key_openssh}"
+  filename = "/home/vnesp/.ssh/private_key.pem"
 }
 
 # Create an EC2 instance
 resource "aws_instance" "web" {
   count = 3
   ami           = "ami-0574da719dca65348"
-  instance_type = "t2.micro"
-  security_groups = [aws_security_group.ssh.id]
+  instance_type = "t2.micro"  
   vpc_security_group_ids = [aws_security_group.ssh.id]
-  subnet_id              = aws_subnet.public.id
-   # Assign a public IP address
-  associate_public_ip_address = true   
-    tags = {
-    "Name" = "EC2-${count.index}"
+  tags = {
+  "Name" = "EC2-${count.index}"
   }
-  
-
+  # Assign a public IP address
+  associate_public_ip_address = true   
   # Add a key pair for SSH access
   key_name = "my-key"
   
