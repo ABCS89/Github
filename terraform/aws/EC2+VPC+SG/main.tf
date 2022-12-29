@@ -49,22 +49,27 @@ resource "aws_key_pair" "generated_key" {
 # Save the private key to a file
 resource "local_file" "private_key" {
   content  = tls_private_key.example.public_key_openssh
-  filename = "/home/vnesp/.ssh/private_key.pem"
+  filename = "~/.ssh/private_key.pem"
 }
+
 # Create an EC2 instance
 resource "aws_instance" "web" {
+  count = 3
   ami           = "ami-0574da719dca65348"
   instance_type = "t2.micro"
+  security_groups = [aws_security_group.ssh.id]
   vpc_security_group_ids = [aws_security_group.ssh.id]
   subnet_id              = aws_subnet.public.id
    # Assign a public IP address
-  associate_public_ip_address = true 
+  associate_public_ip_address = true   
     tags = {
-    "Name" = "EC2-web"
+    "Name" = "EC2-${count.index}"
   }
+  
 
   # Add a key pair for SSH access
   key_name = "my-key"
+  
 }
 
 

@@ -4,3 +4,10 @@ terraform/aws/EC2+VPC+SG/.terraform/providers/registry.terraform.io/hashicorp/tl
 terraform/aws/EC2+VPC+SG/.terraform.lock.hcl
 terraform/aws/EC2+VPC+SG/terraform.tfstate
 terraform/aws/EC2+VPC+SG/terraform.tfstate.backup
+terraform/aws/EC2+SG/.terraform/providers/registry.terraform.io/hashicorp/aws/2.70.1/linux_amd64/terraform-provider-aws_v2.70.1_x4
+terraform/aws/EC2+SG/.terraform/providers/registry.terraform.io/hashicorp/local/2.2.3/linux_amd64/terraform-provider-local_v2.2.3_x5
+terraform/aws/EC2+SG/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.4/linux_amd64/terraform-provider-tls_v4.0.4_x5
+terraform/aws/EC2+SG/.terraform.lock.hcl
+.gitignore
+terraform/aws/EC2+SG/terraform.tfstate.backup
+terraform/aws/EC2+SG/terraform.tfstate
