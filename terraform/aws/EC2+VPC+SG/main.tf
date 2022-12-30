@@ -35,7 +35,7 @@ resource "aws_key_pair" "generated_key" {
 # Save the private key to a file
 resource "local_file" "private_key" {
   content  = "${tls_private_key.example.public_key_openssh}"
-  filename = "/home/vnesp/.ssh/private_key.pem"
+  filename = "~/.ssh/private_key.pem"
 }
 
 # Create an EC2 instance

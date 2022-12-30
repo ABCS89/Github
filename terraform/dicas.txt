@@ -3,3 +3,8 @@ $ terraform workspace select <ambiente>
 
 
 https://www.terraform.io
+
+
+
+terraform plan -var-file=terraform.tfvars
+terraform apply -var-file=terraform.tfvars
