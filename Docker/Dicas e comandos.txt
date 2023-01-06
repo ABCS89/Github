@@ -42,6 +42,7 @@ Parâmetro	Explicaçãols
 -P Mapeamento de porta aleatoriamente 
 -m	Limitar o uso de memória RAM
 -c	Balancear o uso de CPU
+-s ver o tamanho da imagem
 
 
 docker info
@@ -154,7 +155,7 @@ rodar um docker/iniciar
 docker run 
 docker run -it ubuntu bash 
 docker run -it ubuntu sleep 1d // docker run -d nginx
-
+docker history <nome da tag do container>
 
 exemplos
 docker ps -a
@@ -180,7 +181,7 @@ remove all containers
 sudo docker ps -q -a | sudo xargs docker stop
 sudo docker ps -q -a | sudo  xargs docker rm -f
 #remover todas as images docker 
-sudo docker rmi $(docker images -q)//docker image prune
+sudo docker rmi $(sudo docker images -q)//docker image prune
 
 
 
