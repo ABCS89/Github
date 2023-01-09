@@ -1,0 +1,15 @@
+https://docs.docker.com/engine/reference/builder/
+
+
+FROM node:14(baixa a imagem que vai ser rodada dentro do container)
+WORKDIR /app-node(define o local que vc quer trabalhar ) 
+COPY .(lado dos arquivos que foi buildado)  . (lado do docker) A diferença entre ADD e COPY é que ADD pode extrair um arquivo de um URL e COPY não.
+RUN (roda codigos dentro do container  e ele vai entender os codigos em base da imagem)
+ADD: Adiciona um arquivo ou diretório a partir da máquina local para o caminho especificado no container.
+ENV: Define uma variável de ambiente no container.
+EXPOSE: Especifica uma porta que o container irá escutar. Isso não expõe a porta automaticamente no host, para fazer isso é necessário usar o comando -p ou --publish ao iniciar o container.
+LABEL: Adiciona metadados à imagem.
+STOPSIGNAL: Especifica o sinal que será enviado para o container para interrompê-lo.
+USER: Especifica o usuário ou ID de usuário a ser usado para executar o container.
+VOLUME: Cria um ponto de montagem no container.
+ONBUILD: Adiciona uma trigger que será executada quando a imagem filha for construída a partir da imagem pai.
