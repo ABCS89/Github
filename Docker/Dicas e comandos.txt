@@ -2,6 +2,10 @@ https://docs.docker.com/engine/reference/builder/ Documentacao
 
 
 
+ -----------Docker root-----------
+sudo useradd -c "Usuário Docker" -m -d /home/docker -s /bin/bash docker
+sudo usermod -aG docker $(whoami)
+
 
 Docker run hello-world(rodar um docker para verificar se esta configurado na maquina )
 

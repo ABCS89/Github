@@ -40,7 +40,7 @@ resource "local_file" "private_key" {
 
 # Create an EC2 instance
 resource "aws_instance" "web" {
-  count = 3
+  count = 1
   ami           = "ami-0574da719dca65348"
   instance_type = "t2.micro"  
   vpc_security_group_ids = [aws_security_group.ssh.id]
