@@ -184,9 +184,9 @@ remove all containers
 #stop e remove todos os containers 
 sudo docker ps -q -a | sudo xargs docker stop
 sudo docker ps -q -a | sudo  xargs docker rm -f
+sudo docker rmi $(sudo docker images -q)
+//docker image prune 
 #remover todas as images docker 
-sudo docker rmi $(sudo docker images -q)//docker image prune
-
 
 
 
@@ -199,6 +199,6 @@ docker tag danielartine/app-node:1.0 aluradocker/app-node:1.0
 
 docker push aluradocker/app-node:1.0
 
-
+docker-compose -f docker-compose.yml -f docker-compose-2.yml -f docker-compose-3.yml up
 
 docker build -t korp/solarwinds-dpa:1.0.1 .
