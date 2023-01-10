@@ -34,7 +34,7 @@ services:
       - ZBX_HOSTNAME=zabbix-agent_zabbix-server-korp
       - ZBX_SERVER_HOST=zabbix-server
       - ZBX_PASSIVE_ALLOW=false
-      - ZBX_ACTIVESERVERS=zabbix-server.korp.com.br:10051
+      - ZBX_ACTIVESERVERS=zabbix-server.exempleHttps.com.br:10051
     volumes:
       - /dev/sdc:/dev/sdc
     privileged: true

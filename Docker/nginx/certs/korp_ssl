@@ -1,0 +1,5 @@
+
+ listen 443 ssl;
+ ssl_certificate /etc/nginx/certs/korp.pem;
+ ssl_certificate_key /etc/nginx/certs/korp-key.pem;
+

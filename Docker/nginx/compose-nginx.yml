@@ -1,0 +1,27 @@
+version: "3.7"
+
+networks:
+  nginx:
+    name: nginx
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
+volumes:
+  nginx-conf:
+    name: nginx-conf
+
+services:
+  nginx:
+    image: "nginx:latest"
+    container_name: "nginx"
+    restart: always
+    networks:
+      nginx:
+        ipv4_address: 172.18.0.5
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx-conf:/etc/nginx/
