@@ -31,7 +31,7 @@ services:
     ports:
       - 10050:10050
     environment:
-      - ZBX_HOSTNAME=zabbix-agent_zabbix-server-korp
+      - ZBX_HOSTNAME=zabbix-agent_zabbix-server-default
       - ZBX_SERVER_HOST=zabbix-server
       - ZBX_PASSIVE_ALLOW=false
       - ZBX_ACTIVESERVERS=zabbix-server.exempleHttps.com.br:10051
