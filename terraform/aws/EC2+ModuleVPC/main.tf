@@ -10,13 +10,11 @@ module "vpc" {
   name = var.vpc_name
   cidr = var.vpc_cidr
 
-  private_subnets = var.vpc_private_subnets
   public_subnets  = var.vpc_public_subnets
 
   enable_nat_gateway = var.vpc_enable_nat_gateway
 
-  tags = var.vpc_tags
-  
+  environment = var.environment  
 }
 
 variable "key_name" {default="my-key"}
