@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"vpc","Source":"./MODULES/VPC","Dir":"MODULES/VPC"}]}
+{"Modules":[{"Key":"VPC","Source":"./MODULES/VPC","Dir":"MODULES/VPC"},{"Key":"","Source":"","Dir":"."},{"Key":"vpc","Source":"./MODULES/VPC","Dir":"MODULES/VPC"},{"Key":"VPCCheater","Source":"./MODULES/VPC","Dir":"MODULES/VPC"}]}
