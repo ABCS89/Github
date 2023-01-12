@@ -11,6 +11,7 @@ variable "vpc_provider_region" {
 
 variable "vpc_cidr" {
   description = "Bloco CIDR da VPC"
+  default = "" 
 }
 
 variable "vpc_private_subnets" {
