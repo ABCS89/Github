@@ -1,9 +1,9 @@
 module "prod" {
-    source = "../../infra"
+  source = "../../infra"
 
-    nome_repositorio = "producao"
-    cargoIAM = "producao"
-    ambiante = "producao"
+  nome_repositorio = "producao"
+  cargoIAM = "producao"
+  ambiante = "producao"
 }
 
 output "IP_alb" {
