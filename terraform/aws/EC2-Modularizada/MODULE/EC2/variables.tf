@@ -8,8 +8,18 @@ variable "instance_type" {
   description = "Tipo (classe) da instância"
   default = ""
 }
-variable "key_name" {
+variable "user_data" {
   type = string
-  description = "Nome do Key Pair a ser usado para a instância"
+  description = "User data utilizado ao provisionar a instância"
   default     = ""
+}
+variable "provider_region" {
+  type = string
+  description = "provedor e regiao inserida"
+  default     = ""
+}
+variable "name"{
+  type = string
+  description = "nome da EC2"
+  default= ""
 }
