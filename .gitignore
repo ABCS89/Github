@@ -34,3 +34,9 @@ terraform/aws/CodeArtifact/terraform.tfstate
 terraform/aws/CodeArtifact/terraform.tfstate.backup
 .gitignore
 terraform/aws/CodeArtifact/terraform.tfstate.backup
+terraform/aws/CodeArtifact/CodeArtifact+module/.terraform/providers/registry.terraform.io/hashicorp/aws/4.50.0/linux_amd64/terraform-provider-aws_v4.50.0_x5
+terraform/aws/CodeArtifact/CodeArtifact+module/.terraform/modules/modules.json
+terraform/aws/CodeArtifact/CodeArtifact+module/terraform.tfstate.backup
+.gitignore
+terraform/aws/CodeArtifact/CodeArtifact+module/terraform.tfstate
+terraform/aws/CodeArtifact/CodeArtifact+module/.terraform.lock.hcl
