@@ -1,18 +1,22 @@
 variable "Taxman_EC2_ami" {
-  type = string
+  type        = string
   description = "ID da AMI usada para provisionar a instância"
-  default = ""
+  default     = ""
 }
 variable "Taxman_EC2_instance_type" {
-  type = string
+  type        = string
   description = "Tipo (classe) da instância"
-  default = ""
+  default     = ""
 }
 variable "Taxman_EC2_name" {
   description = "Nome da instância"
-  default = ""
+  default     = ""
 }
 variable "provider_region" {
   description = "Regiao alocada"
-  default=""
+  default     = ""
+}
+
+variable "availability_zone" {
+  default = ""
 }

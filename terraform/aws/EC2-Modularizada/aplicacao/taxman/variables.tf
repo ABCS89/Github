@@ -1,4 +1,3 @@
-#variaveis Taxman para EC2
 variable "Taxman_EC2_ami" {
   type = string
   description = "ID da AMI usada para provisionar a instância"
@@ -17,7 +16,9 @@ variable "provider_region" {
   description = "Regiao alocada"
   default=""
 }
-
+variable "availability_zone"{
+  default =""
+}
 
 
 

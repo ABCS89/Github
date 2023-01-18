@@ -1,9 +1,10 @@
 resource "aws_instance" "main" {  
 
-  ami                  = "${var.ami}"
-  instance_type        = "${var.instance_type}"
-  user_data            = "${var.user_data}"
+  ami                  = var.Taxman_EC2_ami
+  instance_type        = var.Taxman_EC2_instance_type
+  user_data            = var.user_data
   key_name             = "my-key"  
+  availability_zone    = var.availability_zone
 }
 
 variable "key_name" {default="my-key"}
