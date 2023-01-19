@@ -4,10 +4,6 @@ windows terminal
 wsl --install(Instalar o wsl) 
 
 
-python3 -m http.server( acessar os arquivos ) 
-
-localhost:2000
-
 wsl --list --online( verificar os distros disponiveis)
 
 
